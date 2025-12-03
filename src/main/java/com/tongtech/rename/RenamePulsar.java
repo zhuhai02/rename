@@ -13,7 +13,7 @@ public class RenamePulsar {
 //    private static final List<String> notNeedModifyDirs = Arrays.asList("testmocks", "managed-ledger", "jcloud");
 
     public static void main(String[] args) throws Exception {
-        String directoryPath = "/home/zhuhai/project/cnmq";
+        String directoryPath = "/home/zhuhai/project/TongPulsar-rename";
         File directory = new File(directoryPath);
         if (directory.exists() && directory.isDirectory()) {
             traverseDirectory(directory);
@@ -98,10 +98,10 @@ public class RenamePulsar {
             return "tongtech";
         }
         if  (file.getName().equals("pulsar")) {
-            return "cnmq";
+            return "tlqcn";
         }
         if  (file.getName().contains("pulsar")) {
-            return file.getName().replace("pulsar", "cnmq");
+            return file.getName().replace("pulsar", "tlqcn");
         }
         return file.getName();
     }
@@ -111,7 +111,7 @@ public class RenamePulsar {
 //    }
 
     public static String modifyFileName(String originalName) {
-        return originalName.replace("Pulsar", "Cnmq").replace("pulsar", "cnmq");
+        return originalName.replace("Pulsar", "Tlqcn").replace("pulsar", "tlqcn");
     }
 
     public static void modifyFileContent(File file) throws IOException {
@@ -126,11 +126,11 @@ public class RenamePulsar {
                 String line = scanner.nextLine();
                 if (line.trim().startsWith("import")) {
                     startImport = true;
-                    String modifiedLine = line.replace("org.apache.pulsar", "com.tongtech.cnmq")
+                    String modifiedLine = line.replace("org.apache.pulsar", "com.tongtech.tlqcn")
                             .replace("org.apache.bookkeeper", "com.tongtech.bookkeeper")
-                            .replace("Pulsar", "Cnmq")
-                            .replace("pulsar", "cnmq")
-                            .replace("PULSAR", "CNMQ");
+                            .replace("Pulsar", "Tlqcn")
+                            .replace("pulsar", "tlqcn")
+                            .replace("PULSAR", "TLQCN");
                     if (line.contains("static")) {
                         importStaticLines.add(modifiedLine);
                     } else {
@@ -138,19 +138,19 @@ public class RenamePulsar {
                     }
                 } else {
                     String modifiedLine = line
-                            .replace("org\\.apache\\.pulsar", "com\\.tongtech\\.cnmq")
-                            .replace("org.apache.pulsar", "com.tongtech.cnmq")
+                            .replace("org\\.apache\\.pulsar", "com\\.tongtech\\.tlqcn")
+                            .replace("org.apache.pulsar", "com.tongtech.tlqcn")
                             .replace("org.apache.bookkeeper", "com.tongtech.bookkeeper")
-                            .replace("org/apache/pulsar", "com/tongtech/cnmq")
+                            .replace("org/apache/pulsar", "com/tongtech/tlqcn")
                             .replace("org/apache/bookkeeper", "com/tongtech/bookkeeper")
-                            .replace("apache-pulsar", "tlq-cnmq")
-                            .replace("Apache Pulsar", "TongLINK/Q Cnmq")
-                            .replace("4.0.5", "10.0.5.0")
-                            .replace("<bookkeeper.version>4.17.1</bookkeeper.version>", "<bookkeeper.version>10.0.5.0</bookkeeper.version>")
-                            .replace("org[\\\\/]apache[\\\\/]pulsar","com[\\\\/]tongtech[\\\\/]cnmq")
-                            .replace("Pulsar", "Cnmq")
-                            .replace("pulsar", "cnmq")
-                            .replace("PULSAR", "CNMQ");
+                            .replace("apache-pulsar", "tlq-tlqcn")
+                            .replace("Apache Pulsar", "TongLINK/Q Tlqcn")
+                            .replace("4.0.7", "10.0.5.0")
+                            .replace("<bookkeeper.version>4.17.2</bookkeeper.version>", "<bookkeeper.version>10.0.5.0</bookkeeper.version>")
+                            .replace("org[\\\\/]apache[\\\\/]pulsar","com[\\\\/]tongtech[\\\\/]tlqcn")
+                            .replace("Pulsar", "Tlqcn")
+                            .replace("pulsar", "tlqcn")
+                            .replace("PULSAR", "TLQCN");
                     if (!startImport) {
                         beforeImportLines.add(modifiedLine);
                     } else {

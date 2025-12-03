@@ -13,7 +13,7 @@ public class RenameAoP {
 
 
     public static void main(String[] args) throws IOException {
-        String directoryPath = "/home/zhuhai/project/aop-4.0.4.2";
+        String directoryPath = "/home/zhuhai/project/aop-4.0.6.7";
         File directory = new File(directoryPath);
         if (directory.exists() && directory.isDirectory()) {
             traverseDirectory(directory);
@@ -60,7 +60,7 @@ public class RenameAoP {
             return "tongtech";
         }
         if  (file.getName().equals("pulsar")) {
-            return "cnmq";
+            return "tlqcn";
         }
         return file.getName();
     }
@@ -68,8 +68,9 @@ public class RenameAoP {
 
     public static String modifyFileName(String originalName) {
         return originalName
-                .replace("pulsar", "cnmq")
-                .replace("Pulsar", "Cnmq");
+                .replace("pulsar", "tlqcn")
+                .replace("AoP", "AoT")
+                .replace("Pulsar", "Tlqcn");
     }
 
     public static void modifyFileContent(File file) throws IOException {
@@ -78,13 +79,16 @@ public class RenameAoP {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 String modifiedLine = line
-                        .replace("org.apache.pulsar", "com.tongtech.cnmq")
-                        .replace("io.streamnative.pulsar", "com.tongtech.cnmq")
-                        .replace("io.streamnative", "com.tongtech.cnmq")
+                        .replace("org.apache.pulsar", "com.tongtech.tlqcn")
+                        .replace("io.streamnative.pulsar", "com.tongtech.tlqcn")
+                        .replace("io.streamnative", "com.tongtech.tlqcn")
                         .replace("org.apache.bookkeeper", "com.tongtech.bookkeeper")
-                        .replace("4.0.4.2", "10.0.5.0")
-                        .replace("Pulsar", "Cnmq")
-                        .replace("pulsar", "cnmq")
+                        .replace("4.0.6.7", "10.0.5.0")
+                        .replace("aop", "aot")
+                        .replace("AoP", "AoT")
+                        .replace("StreamNative", "TLQCN")
+                        .replace("Pulsar", "Tlqcn")
+                        .replace("pulsar", "tlqcn")
                         .replace("PULSAR", "CNMQ");
                 allLines.add(modifiedLine);
 

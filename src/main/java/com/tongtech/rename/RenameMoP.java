@@ -9,7 +9,7 @@ public class RenameMoP {
 
 
     public static void main(String[] args) throws IOException {
-        String directoryPath = "/home/zhuhai/project/mop-4.0.4.2";
+        String directoryPath = "/home/zhuhai/project/mop-4.0.6.7";
         File directory = new File(directoryPath);
         if (directory.exists() && directory.isDirectory()) {
             traverseDirectory(directory);
@@ -56,7 +56,7 @@ public class RenameMoP {
             return "tongtech";
         }
         if  (file.getName().equals("pulsar")) {
-            return "cnmq";
+            return "tlqcn";
         }
         return file.getName();
     }
@@ -64,8 +64,10 @@ public class RenameMoP {
 
     public static String modifyFileName(String originalName) {
         return originalName
-                .replace("pulsar", "cnmq")
-                .replace("Pulsar", "Cnmq");
+                .replace("pulsar", "tlqcn")
+                .replace("MoP", "MoT")
+                .replace("mop", "mot")
+                .replace("Pulsar", "Tlqcn");
     }
 
     public static void modifyFileContent(File file) throws IOException {
@@ -74,14 +76,18 @@ public class RenameMoP {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 String modifiedLine = line
-                        .replace("org.apache.pulsar", "com.tongtech.cnmq")
-                        .replace("io.streamnative.pulsar", "com.tongtech.cnmq")
-                        .replace("io.streamnative", "com.tongtech.cnmq")
+                        .replace("org.apache.pulsar", "com.tongtech.tlqcn")
+                        .replace("io.streamnative.pulsar", "com.tongtech.tlqcn")
+                        .replace("io.streamnative", "com.tongtech.tlqcn")
                         .replace("org.apache.bookkeeper", "com.tongtech.bookkeeper")
-                        .replace("4.0.4.2", "10.0.5.0")
-                        .replace("Pulsar", "Cnmq")
-                        .replace("pulsar", "cnmq")
-                        .replace("PULSAR", "CNMQ");
+                        .replace("4.0.6.7", "10.0.5.0")
+                        .replace("Pulsar", "Tlqcn")
+                        .replace("pulsar", "tlqcn")
+                        .replace("PULSAR", "TLQCN")
+                        .replace("MoP", "MoT")
+                        .replace("mop", "mot")
+                        .replace("StreamNative", "TLQCN")
+                        .replace("streamnative", "tlqcn");
                 allLines.add(modifiedLine);
 
             }

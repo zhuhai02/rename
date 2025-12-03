@@ -63,20 +63,20 @@ public class RenameKoP {
             return "tongtech";
         }
         if  (file.getName().equals("pulsar")) {
-            return "cnmq";
+            return "tlqcn";
         }
         if  (file.getName().equals("kop")) {
-            return "koc";
+            return "kot";
         }
         return file.getName();
     }
 
 
     public static String modifyFileName(String originalName) {
-        return originalName.replace("Kop", "Koc")
-                .replace("kop", "koc")
-                .replace("pulsar", "cnmq")
-                .replace("Pulsar", "Cnmq");
+        return originalName.replace("Kop", "Kot")
+                .replace("kop", "kot")
+                .replace("pulsar", "tlqcn")
+                .replace("Pulsar", "Tlqcn");
     }
 
     public static void modifyFileContent(File file) throws IOException {
@@ -85,16 +85,18 @@ public class RenameKoP {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 String modifiedLine = line
-                        .replace("org.apache.pulsar", "com.tongtech.cnmq")
-                        .replace("io.streamnative.pulsar", "com.tongtech.cnmq")
-                        .replace("io.streamnative", "com.tongtech.cnmq")
+                        .replace("org.apache.pulsar", "com.tongtech.tlqcn")
+                        .replace("io.streamnative.pulsar", "com.tongtech.tlqcn")
+                        .replace("io.streamnative", "com.tongtech.tlqcn")
                         .replace("org.apache.bookkeeper", "com.tongtech.bookkeeper")
                         .replace("4.0.3.1", "10.0.4.0")
-                        .replace("Pulsar", "Cnmq")
-                        .replace("pulsar", "cnmq")
-                        .replace("PULSAR", "CNMQ")
-                        .replace("kop", "koc")
-                        .replace("Kop", "Koc");
+                        .replace("Pulsar", "Tlqcn")
+                        .replace("pulsar", "tlqcn")
+                        .replace("PULSAR", "TLQCN")
+                        .replace("StreamNative", "TLQCN")
+                        .replace("streamnative", "tlqcn")
+                        .replace("kop", "kot")
+                        .replace("Kop", "Kot");
                 allLines.add(modifiedLine);
 
             }
