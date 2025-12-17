@@ -9,7 +9,7 @@ public class RenameMoP {
 
 
     public static void main(String[] args) throws IOException {
-        String directoryPath = "/home/zhuhai/project/mop-4.0.6.7";
+        String directoryPath = "/home/zhuhai/project/mop-4.0.7.2";
         File directory = new File(directoryPath);
         if (directory.exists() && directory.isDirectory()) {
             traverseDirectory(directory);
@@ -80,7 +80,7 @@ public class RenameMoP {
                         .replace("io.streamnative.pulsar", "com.tongtech.tlqcn")
                         .replace("io.streamnative", "com.tongtech.tlqcn")
                         .replace("org.apache.bookkeeper", "com.tongtech.bookkeeper")
-                        .replace("4.0.6.7", "10.0.5.0")
+                        .replace("4.0.7.2", "10.0.5.0")
                         .replace("Pulsar", "Tlqcn")
                         .replace("pulsar", "tlqcn")
                         .replace("PULSAR", "TLQCN")
