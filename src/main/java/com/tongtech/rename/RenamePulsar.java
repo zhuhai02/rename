@@ -111,7 +111,9 @@ public class RenamePulsar {
 //    }
 
     public static String modifyFileName(String originalName) {
-        return originalName.replace("Pulsar", "Tlqcn").replace("pulsar", "tlqcn");
+        return originalName.replace("org.apache.pulsar", "com.tongtech.tlqcn")
+                .replace("Pulsar", "Tlqcn").
+                replace("pulsar", "tlqcn");
     }
 
     public static void modifyFileContent(File file) throws IOException {
