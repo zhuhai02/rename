@@ -17,7 +17,7 @@ public class RenameBookkeeper {
     private static final List<String> notNeedModifyDirs = Arrays.asList();
 
     public static void main(String[] args) throws IOException {
-        String directoryPath = "/home/zhuhai/project/bookkeeper-release-4.17.2";
+        String directoryPath = "E:\\code\\github\\bookkeeper-release-4.18.1";
         File directory = new File(directoryPath);
         if (directory.exists() && directory.isDirectory()) {
             traverseDirectory(directory);
@@ -66,9 +66,10 @@ public class RenameBookkeeper {
                 String modifiedLine = line
                         .replace("org\\.apache\\.bookkeeper", "com\\.tongtech\\.bookkeeper")
                         .replace("org.apache.bookkeeper", "com.tongtech.bookkeeper")
+                        .replace("org.apache.distributedlog", "com.tongtech.distributedlog")
                         .replace("org/apache/bookkeeper", "com/tongtech/bookkeeper")
                         .replace("org_apache_bookkeeper", "com_tongtech_bookkeeper")
-                        .replace("4.17.2", "10.0.5.0");
+                        .replace("4.18.1", "10.0.7.0");
                 allLines.add(modifiedLine);
             }
         } catch (FileNotFoundException e) {
